@@ -1,6 +1,6 @@
 {
     "name": "mdevs/shipping",
-    "description": "Provides avaiable shipping addresses on cart page and create shippment",
+    "description": "Provides available shipping addresses on cart page and create shippment",
     "require": {
         "php": "~7.1.3||~7.2.0||~7.3.0"
     },
