@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- <preference type="MDevs\Shipping\Model\Shipment" for="MDevs\Shipping\Api\Data\ShipmentInterface"/> -->
+
+    <!-- <preference type="MDevs\Shipping\Model\ShipmentRepository" for="MDevs\Shipping\Api\ShipmentRepositoryInterface"/> -->
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="shipments_grid_data_source" xsi:type="string">MDevs\Shipping\Model\ResourceModel\Shipment\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

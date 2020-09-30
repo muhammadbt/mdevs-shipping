@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MDevs_Shipping::doptions" title="Delivery Options"
+             module="MDevs_Shipping" resource="MDevs_Shipping::exshipping"
+             translate="title" sortOrder="40" />
+
+        <add id="MDevs_Shipping::exshipping" title="All Shipments" module="MDevs_Shipping" sortOrder="50" action="exshipping" resource="MDevs_Shipping::exshipping" parent="MDevs_Shipping::doptions" />
+
+        <add id="MDevs_Shipping::exshippingConfig" title="Configuration" module="MDevs_Shipping" sortOrder="60" parent="MDevs_Shipping::doptions" action="admin/system_config/edit/section/shippingConfig" resource="MDevs_Shipping::helloworld" />
+    </menu>
+</config>

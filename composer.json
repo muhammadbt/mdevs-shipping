@@ -1,0 +1,29 @@
+{
+    "name": "mdevs/shipping",
+    "description": "Provides avaiable shipping addresses on cart page and create shippment",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "~7.1.3||~7.2.0||~7.3.0"
+    },
+    "type": "magento2-module",
+    "license": [
+        "OSL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Muhammad Bin Tabassum",
+            "email": "muhammad.btj@gmail.com"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mdevs\\Shipping\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

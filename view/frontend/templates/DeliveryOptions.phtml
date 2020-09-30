@@ -1,0 +1,60 @@
+<?php if( $block->getApiAccConf("apiAccessToken")!='' ): ?>
+    <?php $deliveryOptions = $block->showListOfOptions(); ?>
+    <div class="delivery-options-container" data-mage-init='{"MDevs_Shipping/js/deliveryAddress": {}}'>
+        <h2>Delivery Options</h2>
+        <?php if (count($deliveryOptions)>0): $count = 1; ?>
+            <?php foreach( $deliveryOptions as $k => $v ): ?>
+                <div class="do-radio">
+                    <label for="<?=$k?>">
+                        <input
+                            <?php echo ($count==1) ? "checked" : "" ?>
+                            type="radio"
+                            id="<?=$k?>"
+                            class="delivery-option"
+                            name="d-options"
+                            value="<?=$v?>" />
+                        <?=$v?>
+                    </label>
+                    <?php if ($k=='ap'): ?>
+                        <?php //$options = $block->getAllPoints(); ?>
+                        <div class="delivery-points" <?php echo ($count==1 && $k=='ap') ? "" : "style='display:none'" ?>>
+
+                            <form action="<?php echo $block->getAjaxUrl() ?>exshipping/index" id="get-zip-points" method="post">
+                                <input name="form_key" type="hidden" value="<?php /* @escapeNotVerified */ echo $block->getFormKey(); ?>" />
+                                <div class="zip-form zip-field">
+                                    <input type="text" name="zipcode" required />
+                                </div>
+                                <div class="zip-form zip-submit">
+                                    <button type="submit" value="Find points">Find points</button>
+                                </div>
+                            </form>
+                            <?php /* ?>
+                            <ul>
+                                <?php if (count($options)>0): ?>
+                                    <?php foreach( $options as $_k => $_v ): ?>
+                                        <li>
+                                            <label for="<?=$_k?>">
+                                                <input <?php echo ($_k==0) ? "checked" : "" ?> type="radio"
+                                                    id="<?=$_k?>"
+                                                    class="delivery-point"
+                                                    name="d-points"
+                                                    value="<?=htmlspecialchars($_v->pointName)?>"
+                                                    data-address="<?=htmlspecialchars($_v->pointName)?>"
+                                                    data-city="<?=htmlspecialchars($_v->pointCity)?>"
+                                                    data-zip="<?=htmlspecialchars($_v->pointZip)?>"
+                                                    data-loc="<?=$_v->latitude?>-<?=$_v->longitude?>" />
+                                                <?=$_v->pointName?>
+                                            </label>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </ul>
+                            <?php */ ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php $count++; endforeach; ?>
+        <?php endif; ?>
+    </div>
+
+<?php endif; ?>

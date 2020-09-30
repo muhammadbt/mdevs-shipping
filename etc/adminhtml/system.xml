@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="shippingConfig" translate="label" sortOrder="10000">
+            <label>Delivery Options</label>
+        </tab>
+        <section id="shippingConfig" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Shipping Configuration</label>
+            <tab>shippingConfig</tab>
+            <resource>MDevs_Shipping::shipping</resource>
+            <group id="shippingAddConfig" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Delivery Options</label>
+
+                <field id="shippingAddConfigEnable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="deliveryToAddress" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Delivery To Address</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+                <field id="deliveryToAddressLabel" translate="label" type="text" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Delivery To Address Label</label>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+                <field id="alfredPoint" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Collect at Alfred Point</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+                <field id="alfredPointLabel" translate="label" type="text" sortOrder="14" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Alfred Point Label</label>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+                <field id="alfredLocker" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Collect at Alfred Locker</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+                <field id="alfredLockerLabel" translate="label" type="text" sortOrder="16" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Alfred Locker Label</label>
+                    <depends>
+                        <field id="shippingAddConfigEnable">1</field>
+                    </depends>
+                </field>
+
+            </group>
+
+            <group id="ApiAccessConfig" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Api access details</label>
+
+                <field id="apiEmail" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email</label>
+                </field>
+
+                <field id="apiPassword" translate="label" type="password" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Password</label>
+                </field>
+
+                <field id="apiAccessToken" translate="label" type="hidden" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0"></field>
+
+                <field id="apiSenderInfo" translate="label" type="hidden" sortOrder="13" showInDefault="1" showInWebsite="0" showInStore="0"></field>
+
+            </group>
+        </section>
+    </system>
+</config>
